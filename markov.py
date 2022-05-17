@@ -45,39 +45,42 @@ def make_chains(text_string):
     
     # print(words)
     chains = {}
-    bridge_list = []
+    
     for i in range (len(words)-2):
         # put i and i + 1 in a tuple and add that as a key in dict
         my_tuple = (words[i],words[i + 1])
+        # print(my_tuple)
         bridge_word = words[i + 2]
+        # print(bridge_word)
+        
         
 
         if my_tuple not in chains:
             # chains[my_tuple] = bridge_list.append(bridge_word)
+            
             chains[my_tuple] = [bridge_word]
         
         else:
-            chains[my_tuple] = bridge_list.append(bridge_word)
-        # # value = [could, could, could, like ]
-        # print(my_tuple)
-        # print(bridge_word)
-    print(chains)
-    # print(bridge_list)
+            chains[my_tuple].append(bridge_word)
+        
 
         # every word pair is going to be a key
         # value would be and options that could follow it (could or like would be dicitonary values)
         # the next dictionary key would be you could
 
-    # your code goes here
-
-    # return chains
+    # for key, value in chains.items():
+    #      print(f"{key} : {value}")
+    return chains
 
 
 def make_text(chains):
     """Return text from chains."""
+    my_list = list(chains.keys())
 
+    random_key = choice(my_list)
+    print(random_key)
     words = []
-
+    # when given a word = it is going to access the key with that word at 
     # your code goes here
 
     return ' '.join(words)
