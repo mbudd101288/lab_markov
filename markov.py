@@ -9,10 +9,12 @@ def open_and_read_file(file_path):
     Takes a string that is a file path, opens the file, and turns
     the file's contents as one string of text.
     """
-
+    
     # your code goes here
-
-    return 'Contents of your file as one long string'
+    the_file = open(file_path).read()
+    
+    return the_file
+    
 
 
 def make_chains(text_string):
@@ -39,12 +41,36 @@ def make_chains(text_string):
         >>> chains[('there','juanita')]
         [None]
     """
-
+    words = text_string.split()
+    
+    # print(words)
     chains = {}
+    bridge_list = []
+    for i in range (len(words)-2):
+        # put i and i + 1 in a tuple and add that as a key in dict
+        my_tuple = (words[i],words[i + 1])
+        bridge_word = words[i + 2]
+        
+
+        if my_tuple not in chains:
+            # chains[my_tuple] = bridge_list.append(bridge_word)
+            chains[my_tuple] = [bridge_word]
+        
+        else:
+            chains[my_tuple] = bridge_list.append(bridge_word)
+        # # value = [could, could, could, like ]
+        # print(my_tuple)
+        # print(bridge_word)
+    print(chains)
+    # print(bridge_list)
+
+        # every word pair is going to be a key
+        # value would be and options that could follow it (could or like would be dicitonary values)
+        # the next dictionary key would be you could
 
     # your code goes here
 
-    return chains
+    # return chains
 
 
 def make_text(chains):
