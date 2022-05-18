@@ -13,6 +13,7 @@ def open_and_read_file(file_path):
     # your code goes here
     the_file = open(file_path).read()
     
+    
     return the_file
     
 
@@ -95,6 +96,8 @@ Keep doing that until your program raises a KeyError."""
 
     
     random_key = choice(my_list)
+    words.append(random_key[0])
+    words.append(random_key[1])
 
     while True:    
         #  print(random_key)
@@ -110,6 +113,7 @@ Keep doing that until your program raises a KeyError."""
         if random_key not in my_list:
             return ' '.join(words)
             
+            
 
         # else:
         # return "".join(words)
@@ -124,6 +128,7 @@ Keep doing that until your program raises a KeyError."""
 
 
 input_path = 'green-eggs.txt'
+# input_path = 'gettysburg.txt'
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
