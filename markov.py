@@ -75,15 +75,52 @@ def make_chains(text_string):
 
 def make_text(chains):
     """Return text from chains."""
-    my_list = list(chains.keys())
-
-    random_key = choice(my_list)
-    print(random_key)
     words = []
+
+    """ Put the words from that link in some kind of container (the skeleton file suggests adding each word to a
+ list and joining the list into a string at the end). Once we have our first link, we can add another to it, 
+ and we can repeat the following process to add more:
+
+Make a new key out of the second word in the first key and the random word you pulled out from the 
+list of words that followed it.
+
+Look up that new key in the dictionary, and pull a new random word out of the resulting list.
+
+Keep doing that until your program raises a KeyError."""
+
+    
+
+    my_list = list(chains.keys())
+         #  print(my_list)
+
+    
+    random_key = choice(my_list)
+
+    while True:    
+        #  print(random_key)
+        random_bridge_word = choice(chains[random_key])
+        # print(random_bridge_word)
+        # words.append(random_key)
+        words.append(random_bridge_word)
+        
+    
+        random_key = (random_key[1], random_bridge_word)
+        # next_value = choicemy_list[new_key] 
+
+        if random_key not in my_list:
+            return ' '.join(words)
+            
+
+        # else:
+        # return "".join(words)
+        
+    
+    # print(random_bridge_word)
+    
     # when given a word = it is going to access the key with that word at 
     # your code goes here
 
-    return ' '.join(words)
+    
 
 
 input_path = 'green-eggs.txt'
